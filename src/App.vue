@@ -23,7 +23,7 @@
     <div class="main">
       <div class="recommend">
         <div class="recommend-title">
-          <img class="icon" src="../public/hot.png" alt=""/>
+          <img class="icon" src="../public/hot.png" alt="" />
           <p class="title1">热门推荐</p>
           <ul>
             <li>音乐</li>
@@ -32,31 +32,65 @@
             <li>音乐</li>
             <li>音乐</li>
           </ul>
-          <p class="more">更多</p>
+          <div class="more">更多<img src="../public/right.png" alt=""></div>
         </div>
         <div class="line"></div>
         <div class="books">
-          <div class="book"></div>
-          <div class="book"></div>
-          <div class="book"></div>
-          <div class="book"></div>
-          <div class="book"></div>
-          <div class="book"></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
+          <div class="book"><img src="../public/book.jpg" alt="" />
+          <p>神话故事：蜗牛故事有声版</p></div>
         </div>
+    <div style="height:20px;"></div>
       </div>
     </div>
+    <div style="height:50px;"></div>
   </div>
 </template>
 
 <style lang="less">
+html,
 body,
-html {
-  padding: 0;
+div,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ol,
+form,
+input,
+textarea,
+th,
+td,
+select {
   margin: 0;
+  padding: 0;
+}
+* {
   box-sizing: border-box;
 }
 .header-container {
-  width: 100vw;
+  width: 100%;
   height: 80px;
   background-color: #242424;
   display: flex;
@@ -111,7 +145,7 @@ html {
   cursor: pointer;
 }
 .banner {
-  width: 100vw;
+  width: 100%;
   text-align: center;
   background-color: #1d1f20;
 }
@@ -131,8 +165,13 @@ html {
   width: 32px;
   height: 32px;
 }
+.recommend {
+  padding: 0 20px;
+  border: 1px solid #cccccc;
+  width: 800px;
+}
 .recommend-title {
-  width: 640px;
+  width: 100%;
   display: flex;
   align-items: center;
   height: 54px;
@@ -143,6 +182,7 @@ html {
 .recommend-title ul {
   display: flex;
   list-style: none;
+  margin-left: 40px;
 }
 .recommend-title ul li {
   margin-right: 14px;
@@ -150,11 +190,38 @@ html {
   margin-top: 8px;
 }
 .recommend-title .more {
-  margin-left: 200px;
+  margin-left: 320px;
+  display: flex;
+  align-items: center;
+}
+.recommend-title .more img {
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
 }
 .line {
-  width: 640px;
+  width: 760px;
   height: 2px;
   background-color: #ccc;
+}
+.books {
+  width: 760px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.books .book {
+  width: 162px;
+  height: 240px;
+  margin-top: 20px;
+  border: 1px solid #eee;
+}
+.books .book img {
+  width: 100%;
+  height: 180px;
+}
+.books .book P {
+  font-size: 14px;
+  margin: 8px 6px;
 }
 </style>
