@@ -10,6 +10,21 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: () => import('./views/Search.vue')
+    },
+    {
+      path: '/personal',
+      name: 'personal',
+      component: () => import('./views/Personal.vue')
+    },
+    {
+      path: '/player',
+      name: 'player',
+      component: () => import('./views/Player.vue')
     }
   ]
 })
