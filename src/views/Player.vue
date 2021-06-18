@@ -21,21 +21,24 @@
           </ul>
         </div>
       </div>
-      <div class="controls">
-        <img src="../../public/last.png" alt="" />
-        <img
-          @click="toPlay"
-          v-if="type === 1"
-          src="../../public/play2.png"
-          alt=""
-        />
-        <img
-          @click="toPause"
-          v-if="type === 2"
-          src="../../public/pause2.png"
-          alt=""
-        />
-        <img src="../../public/next.png" alt="" />
+      <div class="big-controls">
+        <div class="controls">
+          <img src="../../public/last.png" alt="" />
+          <img
+            @click="toPlay"
+            v-if="type === 1"
+            src="../../public/play2.png"
+            alt=""
+          />
+          <img
+            @click="toPause"
+            v-if="type === 2"
+            src="../../public/pause2.png"
+            alt=""
+          />
+          <img src="../../public/next.png" alt="" />
+        </div>
+          <a href="" download="蜗牛故事.mp3"><img class="download" src="../../public/download.png" alt="" /></a>
       </div>
       <div class="comments">
         <div class="comments-title">
@@ -47,14 +50,62 @@
             id=""
             cols="80"
             rows="3"
-            style="outline: none;font-size:22px"
+            style="outline: none; font-size: 22px"
           ></textarea>
           <button>发表</button>
         </div>
-        <div style="height:14px"></div>
-        <hr>
+        <div style="height: 14px"></div>
+        <hr />
         <div class="comments-title">
           <p>全部评论(1w+)</p>
+          <div class="comment">
+            <img src="../../public/photo1.png" alt="" />
+            <div class="comment-info">
+              <p>
+                <span>兰兰小白鹄：</span>我们都不是天赋异禀的人
+                在茫茫人海中甚至会有些平庸 可是我们的人生不仅仅是潦草诗
+                当在迷雾散尽时 天光大亮 我们一定会看清远方的灯塔
+                奔走在漫漫时光中 成为故事的主角
+              </p>
+              <p>2020年2月20日 18:30</p>
+            </div>
+          </div>
+          <div class="comment">
+            <img src="../../public/photo1.png" alt="" />
+            <div class="comment-info">
+              <p>
+                <span>兰兰小白鹄：</span>我们都不是天赋异禀的人
+                在茫茫人海中甚至会有些平庸 可是我们的人生不仅仅是潦草诗
+                当在迷雾散尽时 天光大亮 我们一定会看清远方的灯塔
+                奔走在漫漫时光中 成为故事的主角
+              </p>
+              <p>2020年2月20日 18:30</p>
+            </div>
+          </div>
+          <div class="comment">
+            <img src="../../public/photo1.png" alt="" />
+            <div class="comment-info">
+              <p>
+                <span>兰兰小白鹄：</span>我们都不是天赋异禀的人
+                在茫茫人海中甚至会有些平庸 可是我们的人生不仅仅是潦草诗
+                当在迷雾散尽时 天光大亮 我们一定会看清远方的灯塔
+                奔走在漫漫时光中 成为故事的主角
+              </p>
+              <p>2020年2月20日 18:30</p>
+            </div>
+          </div>
+          <div class="comment">
+            <img src="../../public/photo1.png" alt="" />
+            <div class="comment-info">
+              <p>
+                <span>兰兰小白鹄：</span>我们都不是天赋异禀的人
+                在茫茫人海中甚至会有些平庸 可是我们的人生不仅仅是潦草诗
+                当在迷雾散尽时 天光大亮 我们一定会看清远方的灯塔
+                奔走在漫漫时光中 成为故事的主角
+              </p>
+              <p>2020年2月20日 18:30</p>
+            </div>
+          </div>
         </div>
         <div></div>
       </div>
@@ -74,16 +125,26 @@ export default {
     toPlay() {
       this.$parent.$refs.MusicPlay.play();
       this.type = 2;
+      localStorage.setItem("type", this.type);
     },
     toPause() {
       this.$parent.$refs.MusicPlay.pause();
       this.type = 1;
+      localStorage.setItem("type", this.type);
     },
     change() {
       console.log("logout child");
       this.$emit("logoutUser", this.user);
     },
+    download() {
+      this.$parent.$refs.MusicPlay.download();
+    },
     play() {},
+  },
+  mounted() {
+    const nowType = localStorage.getItem("type");
+    console.log(nowType);
+    this.type = JSON.parse(nowType);
   },
 };
 </script>
@@ -149,6 +210,14 @@ export default {
 .controls img {
   cursor: pointer;
 }
+.big-controls {
+  position: relative;
+}
+.download {
+  position: absolute;
+  top: 28px;
+  right: 100px;
+}
 .CD-info {
   position: absolute;
   top: 100px;
@@ -179,5 +248,32 @@ export default {
   border: none;
   margin-top: 40px;
   margin-left: 20px;
+}
+.comment {
+  height: 80px;
+  border-bottom: 1px solid rgb(207, 206, 206);
+  display: flex;
+  align-items: center;
+}
+.comment img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.comment-info {
+  margin-left: 10px;
+}
+.comment-info p {
+  font-size: 12px;
+  color: #535455;
+  font-weight: 400;
+}
+.comment-info span {
+  font-size: 14px;
+  color: rgb(80, 133, 177);
+}
+.comment-info p:last-child {
+  margin-top: 6px;
+  color: #ccc;
 }
 </style>> 
