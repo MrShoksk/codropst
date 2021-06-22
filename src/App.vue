@@ -32,7 +32,7 @@
       ref="MusicPlay"
       style="display: none"
     >
-      <source :src="audioUrl" type="audio/mpeg" />
+      <source src="" type="audio/mpeg" />
     </audio>
   </div>
 </template>
@@ -85,6 +85,9 @@ select {
 }
 a {
   text-decoration: none;
+}
+body {
+  background-color: rgb(245, 245, 245);
 }
 .header-container {
   width: 100%;
