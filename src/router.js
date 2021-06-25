@@ -25,6 +25,11 @@ export default new Router({
       path: '/player',
       name: 'player',
       component: () => import('./views/Player.vue')
+    },
+    {
+      path: '/classify',
+      name: 'classify',
+      component: () => import('./views/Classify.vue')
     }
   ]
 })

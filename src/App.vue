@@ -5,25 +5,19 @@
       <p class="title">有声爱好者网站</p>
       <ul>
         <router-link to="/"><li>首页</li></router-link>
-        <li>此处最多九个字啊啊</li>
+        <router-link to="/classify"><li>分类</li></router-link>
         <li>此处最多九个字啊啊</li>
         <router-link to="/player"><li>播放器</li></router-link>
         <router-link to="/personal"><li>个人空间</li></router-link>
       </ul>
       <div class="box" @click="toSearch">搜索框</div>
       <div class="login-btn">
-        <div class="btn">登录</div>
+        <div class="btn" @click="toDL">登录</div>
         |
-        <div class="btn">注册</div>
+        <div class="btn" @click="toZC">注册</div>
       </div>
-      <audio>
-        <source
-          src="../public/audio/刘至佳_韩瞳-时光背面的我.mp3"
-          type="audio/mpeg"
-        />
-      </audio>
     </div>
-    <router-view @logoutUser="logoutUser"></router-view>
+    <router-view @logoutUser="logoutUser" :typen = 'typen'></router-view>
     <audio
       loop="loop"
       preload="preload"
@@ -41,6 +35,7 @@ export default {
   data() {
     return {
       audioUrl: require("../public/audio/刘至佳_韩瞳-时光背面的我.mp3"),
+      typen:1
     };
   },
   methods: {
@@ -50,6 +45,14 @@ export default {
     logoutUser(user) {
       console.log("logout App.vue", user);
     },
+    toDL(){
+      this.$router.push('/personal')
+      this.typen = 1
+    },
+    toZC(){
+      this.$router.push('/personal')
+      this.typen = 3
+    }
   },
   mounted() {},
 };
