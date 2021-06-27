@@ -9,7 +9,7 @@
           <p>说出你的故事</p>
         </div>
         <div class="part">
-          <img src="../../public/up.png" alt="" />
+          <img src="../../public/up.png" @click="toUpload" alt="" />
           <p>上传作品</p>
           <p>让别人听见你的声音</p>
         </div>
@@ -131,6 +131,7 @@ export default {
   methods: {
     check() {
       if (this.userInp.name == "admin" && this.userInp.pass == "admin") {
+        this.change()
         this.type = 2;
         this.open2();
         localStorage.setItem("userInfo", {
@@ -139,12 +140,19 @@ export default {
         });
       }
     },
+    change() {
+      console.log("logout child");
+      this.$emit("logoutUser", 1);
+    },
     open2() {
       this.$message({
         message: "登录成功",
         type: "success",
       });
     },
+    toUpload(){
+      this.$router.push('/upload')
+    }
   },
   mounted() {
     const userInfo = localStorage.getItem('userInfo')

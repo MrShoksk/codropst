@@ -11,13 +11,24 @@
         <router-link to="/personal"><li>个人空间</li></router-link>
       </ul>
       <div class="box" @click="toSearch">搜索框</div>
-      <div class="login-btn">
+      <div class="user" v-if="isLogin == 1">
+        <img src="../public/photo2.png" alt="" />
+        <div class="name">
+          <div>纳新</div>
+          <div>已登录</div>
+        </div>
+      </div>
+      <div class="login-btn" v-if="isLogin == 0">
         <div class="btn" @click="toDL">登录</div>
         |
         <div class="btn" @click="toZC">注册</div>
       </div>
     </div>
-    <router-view @logoutUser="logoutUser" :typen = 'typen'></router-view>
+    <router-view
+      @logoutUser="logoutUser"
+      @login="login"
+      :typen="typen"
+    ></router-view>
     <audio
       loop="loop"
       preload="preload"
@@ -35,7 +46,8 @@ export default {
   data() {
     return {
       audioUrl: require("../public/audio/刘至佳_韩瞳-时光背面的我.mp3"),
-      typen:1
+      typen: 1,
+      isLogin: 0,
     };
   },
   methods: {
@@ -44,17 +56,28 @@ export default {
     },
     logoutUser(user) {
       console.log("logout App.vue", user);
+      this.isLogin = user;
     },
-    toDL(){
-      this.$router.push('/personal')
-      this.typen = 1
+    login(isLogin) {
+      console.log(isLogin);
     },
-    toZC(){
-      this.$router.push('/personal')
-      this.typen = 3
+    toDL() {
+      this.$router.push("/personal");
+      this.typen = 1;
+    },
+    toZC() {
+      this.$router.push("/personal");
+      this.typen = 3;
+    },
+  },
+  mounted() {
+    const userInfo = localStorage.getItem('userInfo')
+    if (userInfo) {
+      this.isLogin = 1
+    }else {
+      this.isLogin = 0
     }
   },
-  mounted() {},
 };
 </script>
 <style lang="less">
@@ -146,5 +169,22 @@ body {
 .login-btn .btn {
   color: #cccccc;
   cursor: pointer;
+}
+.header-container .user {
+  display: flex;
+  align-items: center;
+}
+.header-container .user img {
+  width: 44px;
+  height: 44px;
+  margin-left: 60px;
+}
+.header-container .user .name {
+  color: rgb(216, 211, 211);
+  margin-left: 10px;
+}
+.header-container .user .name div:last-child {
+  font-size: 12px;
+  color: #cccccc;
 }
 </style>

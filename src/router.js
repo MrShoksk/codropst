@@ -30,6 +30,11 @@ export default new Router({
       path: '/classify',
       name: 'classify',
       component: () => import('./views/Classify.vue')
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: () => import('./views/Upload.vue')
     }
   ]
 })

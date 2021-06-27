@@ -9,95 +9,15 @@
       </div>
       <div style="display: flex">
         <div class="results">
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
+          <div class="result" v-for="(item,index) in resultList" :key="index">
+            <img :src="item.imgUrl" alt="" />
             <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
+              <p>{{item.name}}</p>
+              <p><span>合集：</span>{{item.collection}}</p>
             </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
-          </div>
-          <div class="result">
-            <img src="../../public/book.jpg" alt="" />
-            <div class="info">
-              <p>蜗牛故事有声版</p>
-              <p><span>合集：</span>神话故事</p>
-            </div>
-            <p class="author"><span>by：</span>江南</p>
-            <p class="time"><span>时长：</span>20:14</p>
-            <img class="play" src="../../public/play.png" alt="" />
+            <p class="author"><span>by：</span>{{item.autor}}</p>
+            <p class="time"><span>时长：</span>{{item.time}}</p>
+            <img class="play" @click="toPlay" src="../../public/play.png" alt="" />
           </div>
         </div>
         <div class="rank-list">
@@ -192,7 +112,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      resultList:[
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t14.baidu.com/it/u=77466239,3866616347&fm=224&app=112&f=JPEG?w=429&h=499&s=BCB00A9BD4074AEE1C3F946B0300B031',name:'宝葫芦的秘密',collection:'童话故事',autor:'黎明',time:'20:60'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        {imgUrl:'http://t13.baidu.com/it/u=209943214,4118715336&fm=224&app=112&f=JPEG?w=500&h=500',name:'乐器',collection:'童话故事',autor:'江南',time:'20:14'},
+        ]
+    }
+  },
+  methods:{
+    toPlay(){
+      this.$router.push('/player')
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -274,6 +215,7 @@ export default {};
   width: 60px;
   height: 60px;
   margin-left: 40px;
+  cursor: pointer;
 }
 .rank-list {
   width: 280px;
