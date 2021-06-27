@@ -21,37 +21,9 @@
         </div>
         <div class="line"></div>
         <div class="books">
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
-          </div>
-          <div class="book">
-            <img src="../../public/book.jpg" alt="" />
-            <p>神话故事：蜗牛故事有声版</p>
+          <div class="book" v-for="item in list" :key="item.id">
+            <img :src="item.img" alt="" />
+            <p>{{item.type}}：{{item.name}}</p>
           </div>
         </div>
         <div style="height: 20px"></div>
@@ -150,10 +122,28 @@
 
 <script>
 // @ is an alias to /src
-
+import axios from 'axios'
 export default {
   name: "home",
+  data(){
+    return {
+      list:[]
+    }
+  },
+  methods:{
+    getList(){
+      const url = 'http://localhost:8080/biyesheji/audio/list'
+      axios.get(url).then(res=>{
+        console.log(res.data);
+        this.list = res.data
+      })
+    }
+  },
+  mounted(){
+    this.getList()
+  },
   components: {
+
   },
 };
 </script>
